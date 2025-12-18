@@ -3,167 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopAnime - Classement des Meilleurs Animes</title>
+    <title>TopAnime · Classement Elite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base Styles */
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4d4d;
+            --dark: #0a0a1a;
+            --light: #f8f9fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.4, 1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --border-glow: 0 0 15px rgba(106, 17, 203, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
+
         body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--light);
             line-height: 1.6;
-            color: #333;
+            overflow-x: hidden;
         }
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+
         /* Header */
         header {
-            background: #2c3e50;
-            color: white;
             padding: 2rem 0;
             text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(106, 17, 203, 0.3) 0%,
+                rgba(37, 117, 252, 0.3) 100%
+            );
+            transform: rotate(30deg);
+            z-index: 0;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         /* Hero Section */
         .hero {
-            background: #3498db;
-            color: white;
-            padding: 4rem 0;
+            padding: 6rem 0;
             text-align: center;
+            background: linear-gradient(135deg, var(--dark), #1a1a2e);
+            position: relative;
+            overflow: hidden;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNjAwIDYwMCI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9IiNmZmYiPjwvcmVjdD48cGF0aCBkPSJNMCAwaDIwMHY2MDBIMHpNMjAwIDBoLTIwMHYtNjAwek0wIDBoMjAwVjB6TTIwMCAwaC0yMDBWMHpNMC0yMDBIMjAwVjIwMHgzMDBWMTBIMjAwVjB6IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+') no-repeat center center;
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, #ccc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         .hero button {
-            background: #e74c3c;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: var(--border-glow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
+
+        .hero button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
         .hero button:hover {
-            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
         }
+
+        .hero button:hover::before {
+            left: 100%;
+        }
+
         /* Ranking Section */
         .ranking {
-            padding: 3rem 0;
-            background: #f9f9f9;
+            padding: 4rem 0;
+            background: var(--dark);
+            position: relative;
         }
+
         .ranking h2 {
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
+
         .anime-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
+
         .anime-card {
-            background: white;
-            border-radius: 8px;
+            background: var(--glass);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
         }
+
         .anime-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(106, 17, 203, 0.3);
         }
+
+        .anime-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
         .anime-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            display: block;
         }
+
         .anime-info {
-            padding: 1rem;
+            padding: 1.5rem;
         }
+
         .anime-info h3 {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .anime-info h3::before {
+            content: counter(anime-counter);
+            counter-increment: anime-counter;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .anime-list {
+            counter-reset: anime-counter;
+        }
+
         .anime-info p {
-            color: #666;
-            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
+
         .rating {
-            color: #f39c12;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffd700;
+            font-weight: 600;
         }
+
+        .rating i {
+            color: #ffd700;
+        }
+
         /* Features Section */
         .features {
-            padding: 3rem 0;
+            padding: 4rem 0;
+            background: linear-gradient(180deg, #1a1a2e, var(--dark));
         }
+
         .features h2 {
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
+
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 2rem;
         }
+
         .feature {
-            text-align: center;
+            background: var(--glass);
+            border-radius: 12px;
             padding: 2rem;
-            background: #f9f9f9;
-            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass);
+            transition: var(--transition);
         }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(106, 17, 203, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
         .feature i {
             font-size: 3rem;
-            color: #3498db;
+            color: var(--primary);
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
+
         .feature h3 {
             margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
+
+        .feature p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
         /* Footer */
         footer {
-            background: #2c3e50;
-            color: white;
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.6);
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .anime-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>TopAnime</h1>
-            <p>Le classement ultime des meilleurs animes de tous les temps</p>
+            <h1>TopAnime · Elite</h1>
+            <p>Le classement ultime des animes les plus acclamés, mis à jour en temps réel par notre communauté d'experts.</p>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="container">
-                <h2>Découvrez les animes les mieux notés</h2>
-                <p>Mis à jour chaque mois par notre communauté de passionnés.</p>
-                <button id="see-ranking">Voir le classement</button>
+                <h2>Découvrez le Top 10 des Animes Légendaires</h2>
+                <p>Plongez dans l'univers des animes les mieux notés, sélectionnés pour leur scénario, leur animation et leur impact culturel.</p>
+                <button id="see-ranking">Voir le Classement</button>
             </div>
         </section>
 
         <section class="ranking" id="ranking-section">
             <div class="container">
-                <h2>Top 10 des Animes</h2>
+                <h2>Classement 2025</h2>
                 <div class="anime-list" id="anime-list">
                     <!-- Les animes seront ajoutés ici par JavaScript -->
                 </div>
@@ -172,22 +394,22 @@
 
         <section class="features">
             <div class="container">
-                <h2>Pourquoi TopAnime ?</h2>
+                <h2>Pourquoi nous choisir ?</h2>
                 <div class="feature-grid">
                     <div class="feature">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Classement Objectif</h3>
-                        <p>Basé sur les notes de milliers de fans.</p>
+                        <i class="fas fa-trophy"></i>
+                        <h3>Classement Impartial</h3>
+                        <p>Basé sur des milliers d'avis de fans et de critiques professionnels, pour un top 10 objectif et transparent.</p>
                     </div>
                     <div class="feature">
                         <i class="fas fa-users"></i>
-                        <h3>Communauté Active</h3>
-                        <p>Participez aux votes et discussions.</p>
+                        <h3>Communauté Engagée</h3>
+                        <p>Rejoignez des milliers de passionnés, votez pour vos animes préférés et participez aux discussions.</p>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-star"></i>
-                        <h3>Mises à jour Régulières</h3>
-                        <p>Nouveaux animes ajoutés chaque mois.</p>
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Mises à jour Hebdomadaires</h3>
+                        <p>Notre classement est mis à jour chaque semaine pour refléter les tendances et les nouvelles sorties.</p>
                     </div>
                 </div>
             </div>
@@ -196,10 +418,110 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 TopAnime. Tous droits réservés.</p>
+            <p>&copy; 2025 TopAnime Elite. Tous droits réservés.</p>
         </div>
     </footer>
 
     <script>
-        // Données d'exemple pour les animes
-        const animes = 
+        // Données des animes (avec des images optimisées pour le chargement)
+        const animes = [
+            {
+                title: "Fullmetal Alchemist: Brotherhood",
+                description: "Deux frères alchimistes partent en quête de la pierre philosophale pour restaurer leur corps après une expérience tragique.",
+                rating: 9.8,
+                image: "https://m.media-amazon.com/images/M/MV5BZmEzNjhjN2YtOWQ2Yi00YzQ1LWI2YjMtNjUzNjQ5YTExZmE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Attack on Titan",
+                description: "Dans un monde où l'humanité est au bord de l'extinction à cause de géants mangeurs d'hommes, des jeunes soldats se battent pour leur survie.",
+                rating: 9.6,
+                image: "https://m.media-amazon.com/images/M/MV5BMTY5ODk1NzUyMl5BMl5BanBnXkFtZTgwMjUyNzEyMTE@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Death Note",
+                description: "Un lycéen surdoué trouve un cahier surnaturel qui permet de tuer toute personne dont le nom y est inscrit.",
+                rating: 9.5,
+                image: "https://m.media-amazon.com/images/M/MV5BODkzMjhjYTQtYmQyOS00ZjNlLWE0ZmUtZjZiMWM1YzMyZmRlXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Steins;Gate",
+                description: "Un groupe d'amis découvre un moyen d'envoyer des messages dans le passé, déclenchant une série d'événements aux conséquences imprévisibles.",
+                rating: 9.4,
+                image: "https://m.media-amazon.com/images/M/MV5BYTY2NzY2ZmQtNDUxYy00ZmE2LWE2MmYtYzU1ZjQ5YTUwYjZiXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "One Punch Man",
+                description: "Saitama, un héros capable de vaincre n'importe quel ennemi d'un seul coup, s'ennuie profondément dans un monde où personne ne peut lui résister.",
+                rating: 9.3,
+                image: "https://m.media-amazon.com/images/M/MV5BMjMxNjE3ODk5NV5BMl5BanBnXkFtZTgwNzY1MTE0NzE@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "My Hero Academia",
+                description: "Dans un monde où 80% de la population possède des super-pouvoirs, un jeune garçon sans pouvoir rêve de devenir le plus grand héros.",
+                rating: 9.2,
+                image: "https://m.media-amazon.com/images/M/MV5BODcxMzY3ODk1NV5BMl5BanBnXkFtZTgwOTIxMTUyMDI@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Demon Slayer",
+                description: "Un jeune garçon devient un chasseur de démons pour venger sa famille et sauver sa sœur transformée en démon.",
+                rating: 9.1,
+                image: "https://m.media-amazon.com/images/M/MV5BZmZkN2M2OTItN2Y4Yi00ZTg2LTg2ZjEtNjRkYzQxYzUyZjE3XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Naruto",
+                description: "Un jeune ninja rêve de devenir Hokage pour être reconnu par son village et protéger ceux qu'il aime.",
+                rating: 9.0,
+                image: "https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Hunter x Hunter",
+                description: "Un jeune garçon passe un examen pour devenir chasseur et partir à la recherche de son père, considéré comme le meilleur chasseur du monde.",
+                rating: 9.4,
+                image: "https://m.media-amazon.com/images/M/MV5BZjMzYzk3ZjEtYzYxYi00YmQxLWFkYjAtZDg3MzVlOTY2ZjUzXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                title: "Cowboy Bebop",
+                description: "Un groupe de chasseurs de primes voyage à travers l'espace dans un futur lointain, à la recherche de récompenses et de rédemption.",
+                rating: 9.3,
+                image: "https://m.media-amazon.com/images/M/MV5BZDY0MjBjZDYtZmFmYi00YjhkLTk0N2QtYjQwYmNlN2QzN2JkXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+            }
+        ];
+
+        // Fonction pour afficher les animes
+        function displayAnimes() {
+            const animeList = document.getElementById('anime-list');
+            animeList.innerHTML = '';
+
+            animes.forEach((anime, index) => {
+                const animeCard = document.createElement('div');
+                animeCard.className = 'anime-card';
+                animeCard.innerHTML = `
+                    <img src="${anime.image}" alt="${anime.title}" loading="lazy">
+                    <div class="anime-info">
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>${anime.rating}/10</span>
+                        </div>
+                    </div>
+                `;
+                animeList.appendChild(animeCard);
+            });
+        }
+
+        // Gestion du bouton "Voir le classement"
+        document.getElementById('see-ranking').addEventListener('click', function() {
+            document.querySelector('.hero').style.display = 'none';
+            document.getElementById('ranking-section').scrollIntoView({ behavior: 'smooth' });
+            displayAnimes();
+        });
+
+        // Affichage initial si on arrive directement sur la section
+        if (window.location.hash === '#ranking') {
+            document.querySelector('.hero').style.display = 'none';
+            displayAnimes();
+        }
+    </script>
+</body>
+</html>
